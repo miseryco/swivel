@@ -57,31 +57,73 @@ main {
 	width: 100%;
 }
 
-.eyebrow {
-	margin: 0 0 -2rem;
-	color: #71566a;
-	font-size: 0.75rem;
-	font-weight: 700;
-	letter-spacing: 0.14em;
-	text-transform: uppercase;
+.hero h1 {
+	display: inline-flex;
+	align-items: center;
+	margin: 0 0 clamp(1.35rem, 2.5vw, 2rem);
+	gap: 0.7rem;
+	color: #251d26;
+	font-family: var(--font-family-heading);
+	font-size: clamp(1.25rem, 2vw, 1.55rem);
+	font-weight: 650;
+	letter-spacing: -0.035em;
+	line-height: 1;
 }
 
-h1,
+.app-mark {
+	position: relative;
+	display: grid;
+	width: 2.25rem;
+	height: 2.25rem;
+	overflow: hidden;
+	place-items: center;
+	border: 1px solid rgb(255 255 255 / 68%);
+	border-radius: 0.7rem;
+	background:
+		radial-gradient(circle at 68% 26%, rgb(255 255 255 / 76%) 0 6%, transparent 7%),
+		linear-gradient(145deg, #ff7fba 0%, #d72b7b 52%, #7b326f 100%);
+	box-shadow:
+		0 0.5rem 1.2rem rgb(140 36 91 / 20%),
+		inset 0 1px 0 rgb(255 255 255 / 48%);
+}
+
+.app-mark::before {
+	position: absolute;
+	width: 1.25rem;
+	height: 1.25rem;
+	border: 0.18rem solid rgb(255 255 255 / 92%);
+	border-radius: 50%;
+	content: '';
+}
+
+.app-mark span {
+	width: 0.38rem;
+	height: 0.38rem;
+	border-radius: 50%;
+	background: #fff;
+	box-shadow: 0 0 0 0.18rem rgb(76 18 55 / 22%);
+}
+
+.hero-text,
 h2,
 h3 {
 	font-family: var(--font-family-heading);
 }
 
-h1 {
-	margin: 0;
-	background: linear-gradient(135deg, #ffa700 16%, #f17f50 40%, #f2439d 60%, #ff7ded 80%);
+.hero-text {
+	display: block;
+	text-wrap: balance;
+	padding: 0 0 0.72em;
+	line-height: 0.82;
+	background: linear-gradient(120deg, #3f2338 4%, #74244f 30%, #ad205f 55%, #852b76 77%, #4a2646 96%);
 	background-clip: text;
 	color: transparent;
-	font-size: clamp(6rem, 18vw, 18rem);
+	font-size: clamp(4rem, 8vw, 18rem);
 	font-weight: 700;
-	letter-spacing: -0.075em;
+	letter-spacing: -0.068em;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
+	filter: drop-shadow(0 0.08em 0.12em rgb(74 31 60 / 10%));
 }
 
 .hero-copy {
@@ -314,8 +356,7 @@ h2 {
 	border-radius: 1.75rem;
 	background:
 		radial-gradient(circle at 92% 8%, rgb(255 77 148 / 42%), transparent 32%),
-		radial-gradient(circle at 12% 92%, rgb(111 92 231 / 30%), transparent 34%),
-		#24202b;
+		radial-gradient(circle at 12% 92%, rgb(111 92 231 / 30%), transparent 34%), #24202b;
 	box-shadow: 0 2rem 5rem rgb(54 36 65 / 18%);
 	color: #fff;
 	text-align: left;
@@ -389,7 +430,6 @@ h2 {
 	font-family: var(--font-family-heading);
 	font-size: clamp(2.7rem, 4.5vw, 4.25rem);
 	font-weight: 650;
-	letter-spacing: -0.06em;
 	line-height: 1;
 }
 
@@ -437,7 +477,7 @@ h2 {
 	z-index: 3;
 	width: min(100%, clamp(17rem, 38vw, 28rem));
 	aspect-ratio: 1;
-	margin-top: clamp(-11rem, calc(1.25rem - 13.5vw), -1.25rem);
+	margin-top: clamp(-8rem, calc(1rem - 10vw), -3.5rem);
 	animation: webcam-bob 10.5s ease-in-out infinite;
 	transform: translate3d(0, 0, 0);
 	will-change: transform;
