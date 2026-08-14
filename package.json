@@ -6,16 +6,15 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "preicons": "playwright install chromium",
+    "icons": "node scripts/export-icons.js",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@react-three/drei": "^10.7.8",
-    "@react-three/fiber": "^9.7.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
     "three": "^0.185.0"
   },
   "devDependencies": {
+    "playwright": "^1.62.1",
     "vite": "^8.1.1"
   }
 }
