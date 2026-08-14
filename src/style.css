@@ -113,14 +113,14 @@ h3 {
 .hero-text {
 	display: block;
 	text-wrap: balance;
-	padding: 0 0 0.72em;
+	padding: 0.25em 0 0.72em;
 	line-height: 0.82;
-	background: linear-gradient(120deg, #3f2338 4%, #74244f 30%, #ad205f 55%, #852b76 77%, #4a2646 96%);
+	background: linear-gradient(120deg, #52143f 4%, #9b0f5f 29%, #e21f79 55%, #b221a0 77%, #65175f 96%);
 	background-clip: text;
 	color: transparent;
-	font-size: clamp(4rem, 8vw, 18rem);
+	font-size: clamp(3rem, 8vw, 18rem);
 	font-weight: 700;
-	letter-spacing: -0.068em;
+	letter-spacing: -0.02em;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	filter: drop-shadow(0 0.08em 0.12em rgb(74 31 60 / 10%));
@@ -350,7 +350,7 @@ h2 {
 	align-items: end;
 	width: min(100%, 68rem);
 	overflow: hidden;
-	margin-top: 1rem;
+	margin: 4rem auto 2rem;
 	padding: clamp(2rem, 5vw, 4.5rem);
 	gap: clamp(2rem, 6vw, 5rem);
 	border-radius: 1.75rem;
@@ -477,7 +477,7 @@ h2 {
 	z-index: 3;
 	width: min(100%, clamp(17rem, 38vw, 28rem));
 	aspect-ratio: 1;
-	margin-top: clamp(-8rem, calc(1rem - 10vw), -3.5rem);
+	margin-top: clamp(-8rem, calc(1rem - 10vw), -3rem);
 	animation: webcam-bob 10.5s ease-in-out infinite;
 	transform: translate3d(0, 0, 0);
 	will-change: transform;
