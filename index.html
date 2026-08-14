@@ -50,102 +50,100 @@
 		<link rel="stylesheet" href="/src/style.css" />
 	</head>
 	<body>
+		<header>
+			<h1 id="page-title">
+				<a href="/">
+					<img class="app-mark" src="/icons/web/icon-192x192.png" alt="" aria-hidden="true" />
+					<span>Swivel</span>
+				</a>
+			</h1>
+			<strong class="hero-text">Automatic camera switching for mac</strong>
+		</header>
+
 		<main>
-			<section class="hero" aria-labelledby="page-title">
-				<header>
-					<h1 id="page-title">
-						<a href="/">
-							<img class="app-mark" src="/icons/web/icon-192x192.png" alt="" aria-hidden="true" />
-							<span>Swivel</span>
-						</a>
-					</h1>
-					<strong class="hero-text">Automatic camera switching for mac</strong>
-				</header>
+			<div
+				id="webcam-root"
+				class="webcam-canvas"
+				role="img"
+				aria-label="Interactive 3D webcam illustration"
+			></div>
 
-				<div
-					id="webcam-root"
-					class="webcam-canvas"
-					role="img"
-					aria-label="Interactive 3D webcam illustration"
-				></div>
+			<div class="hero-copy">
+				<p class="summary">Always show your good side</p>
+				<p class="description">
+					Connect your webcams, then select Swivel as your camera in Zoom, Meet, OBS, or any other video
+					app. When you look at a different webcam, Swivel automatically switches to it.
+				</p>
+			</div>
 
-				<div class="hero-copy">
-					<p class="summary">Always show your good side</p>
-					<p class="description">
-						Connect your webcams, then select Swivel as your camera in Zoom, Meet, OBS, or any other video
-						app. When you look at a different webcam, Swivel automatically switches to it.
-					</p>
+			<nav class="purchase-links" aria-label="Buy Swivel">
+				<a class="purchase-link purchase-link-direct" href="#purchase">
+					<span class="purchase-link-copy">
+						<small>Buy Swivel</small>
+						<strong>Direct download</strong>
+					</span>
+					<span class="purchase-link-price">$10 <small>USD</small></span>
+					<span class="purchase-link-arrow" aria-hidden="true">→</span>
+				</a>
+
+				<a class="purchase-link purchase-link-store" href="#purchase">
+					<span class="purchase-link-copy">
+						<small>Mac App Store</small>
+						<strong>Purchase with Apple</strong>
+					</span>
+					<span class="purchase-link-arrow" aria-hidden="true">↗</span>
+				</a>
+			</nav>
+
+			<section class="features" aria-labelledby="features-heading">
+				<div class="features-heading-row">
+					<h2 id="features-heading">Why Swivel?</h2>
+					<span aria-hidden="true"></span>
 				</div>
 
-				<nav class="purchase-links" aria-label="Buy Swivel">
-					<a class="purchase-link purchase-link-direct" href="#purchase">
-						<span class="purchase-link-copy">
-							<small>Buy Swivel</small>
-							<strong>Direct download</strong>
-						</span>
-						<span class="purchase-link-price">$10 <small>USD</small></span>
-						<span class="purchase-link-arrow" aria-hidden="true">→</span>
-					</a>
+				<div class="feature-strip">
+					<article class="feature" style="--feature-accent: #ff9f1c; --feature-glow: #ffe1a8">
+						<p class="feature-number" aria-hidden="true">01</p>
+						<h3>Fast</h3>
+						<p>Built natively for macOS, so camera switches happen the moment you turn.</p>
+					</article>
 
-					<a class="purchase-link purchase-link-store" href="#purchase">
-						<span class="purchase-link-copy">
-							<small>Mac App Store</small>
-							<strong>Purchase with Apple</strong>
-						</span>
-						<span class="purchase-link-arrow" aria-hidden="true">↗</span>
-					</a>
-				</nav>
+					<article class="feature" style="--feature-accent: #ee3f91; --feature-glow: #ffc4df">
+						<p class="feature-number" aria-hidden="true">02</p>
+						<h3>Private</h3>
+						<p>Swivel detects where you’re looking on your Mac. Nothing is sent to the cloud.</p>
+					</article>
 
-				<section class="features" aria-labelledby="features-heading">
-					<div class="features-heading-row">
-						<h2 id="features-heading">Why Swivel?</h2>
-						<span aria-hidden="true"></span>
-					</div>
-
-					<div class="feature-strip">
-						<article class="feature" style="--feature-accent: #ff9f1c; --feature-glow: #ffe1a8">
-							<p class="feature-number" aria-hidden="true">01</p>
-							<h3>Fast</h3>
-							<p>Built natively for macOS, so camera switches happen the moment you turn.</p>
-						</article>
-
-						<article class="feature" style="--feature-accent: #ee3f91; --feature-glow: #ffc4df">
-							<p class="feature-number" aria-hidden="true">02</p>
-							<h3>Private</h3>
-							<p>Swivel detects where you’re looking on your Mac. Nothing is sent to the cloud.</p>
-						</article>
-
-						<article class="feature" style="--feature-accent: #6f5ce7; --feature-glow: #d8d0ff">
-							<p class="feature-number" aria-hidden="true">03</p>
-							<h3>Easy</h3>
-							<p>Select Swivel as your camera once, then use it in Zoom, Meet, OBS, and more.</p>
-						</article>
-					</div>
-				</section>
-
-				<section class="purchase-cta" id="purchase" aria-labelledby="purchase-heading">
-					<div class="purchase-cta-copy">
-						<p class="purchase-eyebrow">One payment. Yours forever.</p>
-						<h2 id="purchase-heading">Buy Swivel once.<br /><em>Keep it for life.</em></h2>
-						<p>Every feature, lifetime updates, and no subscriptions.</p>
-					</div>
-
-					<div class="purchase-offer">
-						<p class="purchase-price"><strong>$10</strong> <span>USD</span></p>
-						<a class="purchase-button" href="#purchase">
-							Buy Swivel now
-							<span aria-hidden="true">→</span>
-						</a>
-						<p class="purchase-note">Fully unlocked&nbsp;&nbsp;·&nbsp;&nbsp;Lifetime updates</p>
-					</div>
-				</section>
+					<article class="feature" style="--feature-accent: #6f5ce7; --feature-glow: #d8d0ff">
+						<p class="feature-number" aria-hidden="true">03</p>
+						<h3>Easy</h3>
+						<p>Select Swivel as your camera once, then use it in Zoom, Meet, OBS, and more.</p>
+					</article>
+				</div>
 			</section>
 
-			<footer>
-				<a href="/">Built by Misery &amp; Co.</a>
-				<time datetime="2026">2026</time>
-			</footer>
+			<section class="purchase-cta" id="purchase" aria-labelledby="purchase-heading">
+				<div class="purchase-cta-copy">
+					<p class="purchase-eyebrow">One payment. Yours forever.</p>
+					<h2 id="purchase-heading">Buy Swivel once.<br /><em>Keep it for life.</em></h2>
+					<p>Every feature, lifetime updates, and no subscriptions.</p>
+				</div>
+
+				<div class="purchase-offer">
+					<p class="purchase-price"><strong>$10</strong> <span>USD</span></p>
+					<a class="purchase-button" href="#purchase">
+						Buy Swivel now
+						<span aria-hidden="true">→</span>
+					</a>
+					<p class="purchase-note">Fully unlocked&nbsp;&nbsp;·&nbsp;&nbsp;Lifetime updates</p>
+				</div>
+			</section>
 		</main>
+
+		<footer>
+			<a href="/">Built by Misery &amp; Co.</a>
+			<time datetime="2026">2026</time>
+		</footer>
 
 		<script type="module" src="/src/webcam.js"></script>
 	</body>
