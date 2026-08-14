@@ -66,7 +66,7 @@ main {
 	font-family: var(--font-family-heading);
 	font-size: clamp(1.25rem, 2vw, 1.55rem);
 	font-weight: 650;
-	letter-spacing: -0.035em;
+	letter-spacing: -0.02em;
 	line-height: 1;
 }
 
@@ -115,7 +115,7 @@ h3 {
 	text-wrap: balance;
 	padding: 0.25em 0 0.72em;
 	line-height: 0.82;
-	background: linear-gradient(120deg, #52143f 4%, #9b0f5f 29%, #e21f79 55%, #b221a0 77%, #65175f 96%);
+	background: linear-gradient(120deg, #b80f84 4%, #ba086e 29%, #e21f79 55%, #c51892 77%, #ad2c69 96%);
 	background-clip: text;
 	color: transparent;
 	font-size: clamp(3rem, 8vw, 18rem);
@@ -139,7 +139,7 @@ h3 {
 	color: #27242f;
 	font-size: clamp(1.35rem, 2.2vw, 1.7rem);
 	font-weight: 600;
-	letter-spacing: -0.025em;
+	letter-spacing: -0.02em;
 	line-height: 1.25;
 }
 
@@ -384,16 +384,15 @@ h2 {
 	color: #ff91c0;
 	font-size: 0.7rem;
 	font-weight: 800;
-	letter-spacing: 0.13em;
 	text-transform: uppercase;
 }
 
 .purchase-cta h2 {
 	margin: 0;
 	color: #fff;
-	font-size: clamp(2.8rem, 6vw, 5.5rem);
+	font-size: clamp(3rem, 6vw, 5rem);
 	font-weight: 650;
-	letter-spacing: -0.06em;
+	letter-spacing: -0.02em;
 	line-height: 0.92;
 	text-transform: none;
 }
