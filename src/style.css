@@ -51,7 +51,7 @@ main {
 	text-align: center;
 }
 
-.hero-heading {
+.hero > header {
 	position: relative;
 	z-index: 2;
 	width: 100%;
@@ -460,7 +460,7 @@ h2 {
 	text-align: center;
 }
 
-.site-footer {
+main > footer {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -474,18 +474,18 @@ h2 {
 	text-align: left;
 }
 
-.site-footer a {
+main > footer a {
 	color: inherit;
 	font: inherit;
 	text-decoration: none;
 	transition: color 180ms ease;
 }
 
-.site-footer a:hover {
+main > footer a:hover {
 	color: #b80f84;
 }
 
-.site-footer a:focus-visible {
+main > footer a:focus-visible {
 	border-radius: 0.2rem;
 	outline: 3px solid rgb(238 63 145 / 35%);
 	outline-offset: 4px;
