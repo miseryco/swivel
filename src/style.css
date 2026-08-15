@@ -266,6 +266,35 @@ h2 {
 	background: rgb(28 27 34 / 18%);
 }
 
+.why-swivel-copy {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	margin: 0 0 1rem;
+	gap: clamp(1.25rem, 4vw, 3.5rem);
+	padding: clamp(1.15rem, 2.5vw, 1.75rem) clamp(1.35rem, 3vw, 2.25rem);
+	border: 1px solid rgb(255 255 255 / 62%);
+	border-radius: 1.35rem;
+	background: rgb(255 255 255 / 28%);
+	backdrop-filter: blur(0.7rem);
+}
+
+.why-swivel-copy p {
+	margin: 0;
+	color: #57525e;
+	font-size: clamp(0.95rem, 1.35vw, 1.05rem);
+	line-height: 1.6;
+}
+
+.why-swivel-copy strong {
+	display: block;
+	margin-bottom: 0.2rem;
+	color: #27242f;
+	font-family: var(--font-family-heading);
+	font-size: 1.08em;
+	font-weight: 600;
+	letter-spacing: -0.02em;
+}
+
 .feature-strip {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
@@ -533,6 +562,11 @@ body > footer a:focus-visible {
 	main,
 	body > footer {
 		width: min(100% - 2rem, 78rem);
+	}
+
+	.why-swivel-copy {
+		grid-template-columns: 1fr;
+		gap: 1rem;
 	}
 
 	.feature-strip {
