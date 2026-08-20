@@ -1,17 +1,14 @@
-import { readFileSync } from "node:fs"
 import { defineConfig } from "vite"
 
 export default defineConfig({
-	plugins: [
-		{
-			name: "sites-worker",
-			generateBundle() {
-				this.emitFile({
-					type: "asset",
-					fileName: "server/index.js",
-					source: readFileSync(new URL("./src/server.js", import.meta.url), "utf8"),
-				})
+	base: "/swivel/",
+	build: {
+		rollupOptions: {
+			input: {
+				index: "index.html",
+				support: "support/index.html",
+				privacy: "privacy/index.html",
 			},
 		},
-	],
+	},
 })

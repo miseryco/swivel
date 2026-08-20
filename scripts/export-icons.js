@@ -10,14 +10,23 @@ import { createServer } from 'vite';
 const execFileAsync = promisify(execFile);
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const publicRoot = join(projectRoot, 'public');
+const artworkRoot = join(projectRoot, 'artwork');
+
+// public/og.png is supplied by the site author. This script only generates
+// icon artwork and must never overwrite hand-authored social imagery.
+const USER_MANAGED_PUBLIC_ASSETS = new Set(['og.png']);
 
 const WEB_ASSETS = [
-	{ path: 'icons/web/favicon-16x16.png', width: 16, height: 16 },
 	{ path: 'icons/web/favicon-32x32.png', width: 32, height: 32 },
-	{ path: 'icons/web/favicon-48x48.png', width: 48, height: 48 },
 	{ path: 'icons/web/icon-192x192.png', width: 192, height: 192 },
 	{ path: 'icons/web/icon-512x512.png', width: 512, height: 512 },
 	{ path: 'apple-touch-icon.png', width: 180, height: 180 },
+];
+
+const FAVICON_ASSETS = [
+	{ width: 16, height: 16 },
+	{ width: 32, height: 32 },
+	{ width: 48, height: 48 },
 ];
 
 const SOCIAL_ASSETS = [
@@ -43,7 +52,7 @@ const MACOS_ASSETS = [
 	{ path: 'icons/macos/AppIcon.iconset/icon_512x512@2x.png', width: 1024, height: 1024 },
 ];
 
-const PNG_ASSETS = [...WEB_ASSETS, ...SOCIAL_ASSETS, ...MACOS_ASSETS];
+const PNG_ASSETS = [...WEB_ASSETS, ...SOCIAL_ASSETS, ...MACOS_ASSETS, ...FAVICON_ASSETS];
 
 function pngDimensions(png) {
 	const signature = png.subarray(0, 8).toString('hex');
@@ -80,10 +89,18 @@ function createIco(images) {
 	return Buffer.concat([header, ...images.map(({ png }) => png)]);
 }
 
-async function writeAsset(path, contents) {
-	const absolutePath = join(publicRoot, path);
+async function writeAsset(root, path, contents) {
+	const absolutePath = join(root, path);
 	await mkdir(dirname(absolutePath), { recursive: true });
 	await writeFile(absolutePath, contents);
+}
+
+async function writePublicAsset(path, contents) {
+	if (USER_MANAGED_PUBLIC_ASSETS.has(path)) {
+		throw new Error(`Refusing to overwrite user-managed public asset: ${path}`);
+	}
+
+	await writeAsset(publicRoot, path, contents);
 }
 
 async function buildIcns() {
@@ -92,10 +109,10 @@ async function buildIcns() {
 		return;
 	}
 
-	const iconsetPath = join(publicRoot, 'icons/macos/AppIcon.iconset');
-	const icnsPath = join(publicRoot, 'icons/macos/AppIcon.icns');
+	const iconsetPath = join(artworkRoot, 'macos/AppIcon.iconset');
+	const icnsPath = join(artworkRoot, 'macos/AppIcon.icns');
 	await execFileAsync('iconutil', ['--convert', 'icns', '--output', icnsPath, iconsetPath]);
-	console.log('Created public/icons/macos/AppIcon.icns');
+	console.log('Created artwork/macos/AppIcon.icns');
 }
 
 async function exportIcons() {
@@ -141,18 +158,25 @@ async function exportIcons() {
 			renderedImages.set(key, png);
 		}
 
-		for (const asset of PNG_ASSETS) {
-			await writeAsset(asset.path, renderedImages.get(`${asset.width}x${asset.height}`));
+		for (const asset of WEB_ASSETS) {
+			await writePublicAsset(asset.path, renderedImages.get(`${asset.width}x${asset.height}`));
+		}
+
+		for (const asset of SOCIAL_ASSETS) {
+			await writeAsset(artworkRoot, asset.path.replace('icons/', ''), renderedImages.get(`${asset.width}x${asset.height}`));
+		}
+
+		for (const asset of MACOS_ASSETS) {
+			await writeAsset(artworkRoot, asset.path.replace('icons/', ''), renderedImages.get(`${asset.width}x${asset.height}`));
 		}
 
 		const favicon = createIco([16, 32, 48].map((size) => ({
 			png: renderedImages.get(`${size}x${size}`),
 			size,
 		})));
-		await writeAsset('favicon.ico', favicon);
-		await writeAsset('icons/web/favicon.ico', favicon);
+		await writePublicAsset('favicon.ico', favicon);
 
-		console.log(`Created ${PNG_ASSETS.length + 2} transparent web, social, and macOS icon files.`);
+		console.log(`Created ${WEB_ASSETS.length + 1} deployable web icon files and ${SOCIAL_ASSETS.length + MACOS_ASSETS.length + 1} local social/macOS artwork files.`);
 		await buildIcns();
 	} finally {
 		await browser?.close();

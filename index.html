@@ -10,8 +10,14 @@
 		/>
 		<meta name="robots" content="index, follow" />
 		<meta name="application-name" content="Swivel" />
+		<link rel="canonical" href="https://misery.co/swivel/" />
+		<link rel="icon" href="/favicon.ico" sizes="any" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/icons/web/favicon-32x32.png" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="manifest" href="/site.webmanifest" />
 
 		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://misery.co/swivel/" />
 		<meta property="og:site_name" content="Swivel" />
 		<meta property="og:title" content="Swivel — Automatic Camera Switcher for macOS" />
 		<meta
@@ -19,9 +25,9 @@
 			content="Add your webcams once. Swivel follows your attention on-device and switches to the right camera automatically."
 		/>
 		<meta property="og:image" content="/og.png" />
-		<meta property="og:image:width" content="1731" />
-		<meta property="og:image:height" content="909" />
-		<meta property="og:image:alt" content="Swivel webcam with the line: always show your good side." />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content="Swivel: Automatic camera switching for mac" />
 
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content="Swivel — Automatic Camera Switcher for macOS" />
@@ -30,12 +36,14 @@
 			content="Add your webcams once. Swivel follows your attention on-device and switches to the right camera automatically."
 		/>
 		<meta name="twitter:image" content="/og.png" />
+		<meta name="twitter:image:alt" content="Swivel: Automatic camera switching for mac" />
 
 		<script type="application/ld+json">
 			{
 				"@context": "https://schema.org",
 				"@type": "SoftwareApplication",
 				"name": "Swivel",
+				"url": "https://misery.co/swivel/",
 				"description": "A fast, beautifully simple automatic camera switcher for macOS.",
 				"applicationCategory": "MultimediaApplication",
 				"operatingSystem": "macOS",
@@ -52,7 +60,7 @@
 	<body>
 		<header>
 			<h1 id="page-title">
-				<a href="/">
+				<a href="./">
 					<img class="app-mark" src="/icons/web/icon-192x192.png" alt="" aria-hidden="true" />
 					<span>Swivel</span>
 				</a>
@@ -71,8 +79,8 @@
 			<div class="hero-copy">
 				<p class="summary">Always show your good side</p>
 				<p class="description">
-					Connect your webcams, then select Swivel as your camera in Zoom, Meet, OBS, or any other video
-					app. When you look at a different webcam, Swivel automatically switches to it.
+					Connect your webcams, then select Swivel as your camera in Zoom, Meet, OBS, or any other video app.
+					When you look at a different webcam, Swivel automatically switches to it.
 				</p>
 			</div>
 
@@ -103,14 +111,14 @@
 
 				<div class="why-swivel-copy">
 					<p>
-						<strong>Stay present at work.</strong> Meetings, interviews, and presentations often mean
-						checking figures or referring to another screen. Swivel follows your attention, so you can
-						turn to what matters without looking away from everyone else.
+						<strong>Stay present in work calls.</strong> Meetings, interviews, and presentations often mean
+						checking figures or referring to another screen. Swivel follows your attention, so you can turn
+						to what matters without looking away from everyone else.
 					</p>
 					<p>
-						<strong>Create without calling the shots.</strong> Streamers can skip distracting OBS shortcuts,
-						and YouTubers can avoid recording every camera and cutting it all together later. Just look at
-						the next camera and start talking.
+						<strong>Create multi-cam content easily.</strong> Your attention directs the shot. Streamers can
+						skip confusing OBS and stream deck configurations. YouTubers can stop manually splicing footage
+						from different cameras. Just look at the next camera and start talking.
 					</p>
 				</div>
 
@@ -154,8 +162,12 @@
 		</main>
 
 		<footer>
-			<a href="/">Built by Misery &amp; Co.</a>
-			<time datetime="2026">2026</time>
+			<a href="./">Built by Misery &amp; Co.</a>
+			<nav aria-label="Support and legal">
+				<a href="./support/">Support</a>
+				<a href="./privacy/">Privacy</a>
+			</nav>
+			<span>© <time datetime="2026">2026</time></span>
 		</footer>
 
 		<script type="module" src="/src/webcam.js"></script>
