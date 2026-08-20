@@ -109,7 +109,7 @@ h3 {
 	background: linear-gradient(120deg, #b80f84 4%, #ba086e 29%, #e21f79 55%, #c51892 77%, #ad2c69 96%);
 	background-clip: text;
 	color: transparent;
-	font-size: clamp(3rem, 8vw, 12rem);
+	font-size: clamp(2.5rem, 8vw, 12rem);
 	font-weight: 700;
 	letter-spacing: -0.02em;
 	-webkit-background-clip: text;
@@ -645,8 +645,8 @@ body > footer a:focus-visible {
 	z-index: 3;
 	width: min(100%, clamp(17rem, 38vw, 28rem));
 	aspect-ratio: 1;
-	margin-top: clamp(-10rem, calc(1rem - 10vw), -3rem);
-	animation: webcam-bob 10.5s ease-in-out infinite;
+	margin-top: clamp(-10rem, calc(1rem - 10vw), -2rem);
+	animation: webcam-bob 10s ease-in-out infinite;
 	transform: translate3d(0, 0, 0);
 	will-change: transform;
 }
