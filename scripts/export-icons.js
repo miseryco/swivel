@@ -52,6 +52,23 @@ const MACOS_ASSETS = [
 	{ path: 'icons/macos/AppIcon.iconset/icon_512x512@2x.png', width: 1024, height: 1024 },
 ];
 
+const PERSPECTIVE_WIDTH = 1024;
+const PERSPECTIVE_HEIGHT = 1024;
+const LOOK_X = 0.2764;
+const LOOK_Y = 0.2967;
+const LOOK_Z = 0.9141;
+const PERSPECTIVE_ASSETS = [
+	{ path: 'perspectives/up-right.png', direction: [LOOK_X, LOOK_Y, LOOK_Z] },
+	{ path: 'perspectives/up.png', direction: [0, LOOK_Y, LOOK_Z] },
+	{ path: 'perspectives/up-left.png', direction: [-LOOK_X, LOOK_Y, LOOK_Z] },
+	{ path: 'perspectives/left.png', direction: [-LOOK_X, 0, LOOK_Z] },
+	{ path: 'perspectives/center.png', direction: [0, 0, LOOK_Z] },
+	{ path: 'perspectives/right.png', direction: [LOOK_X, 0, LOOK_Z] },
+	{ path: 'perspectives/down-left.png', direction: [-LOOK_X, -LOOK_Y, LOOK_Z] },
+	{ path: 'perspectives/down.png', direction: [0, -LOOK_Y, LOOK_Z] },
+	{ path: 'perspectives/down-right.png', direction: [LOOK_X, -LOOK_Y, LOOK_Z] },
+];
+
 const PNG_ASSETS = [...WEB_ASSETS, ...SOCIAL_ASSETS, ...MACOS_ASSETS, ...FAVICON_ASSETS];
 
 function pngDimensions(png) {
@@ -103,6 +120,24 @@ async function writePublicAsset(path, contents) {
 	await writeAsset(publicRoot, path, contents);
 }
 
+async function renderPng(page, asset) {
+	const result = await page.evaluate(
+		(options) => window.renderSwivelIcon(options),
+		asset,
+	);
+	const png = Buffer.from(result.dataUrl.split(',')[1], 'base64');
+	const dimensions = pngDimensions(png);
+
+	if (dimensions.width !== asset.width || dimensions.height !== asset.height) {
+		throw new Error(`Unexpected rendered size for ${asset.width}x${asset.height}.`);
+	}
+	if (![4, 6].includes(dimensions.colorType) || result.minimumAlpha !== 0 || result.maximumAlpha === 0) {
+		throw new Error(`The ${asset.width}x${asset.height} render does not contain transparent and visible pixels.`);
+	}
+
+	return png;
+}
+
 async function buildIcns() {
 	if (process.platform !== 'darwin') {
 		console.log('Skipped AppIcon.icns (iconutil is only available on macOS).');
@@ -117,6 +152,7 @@ async function buildIcns() {
 
 async function exportIcons() {
 	const server = await createServer({
+		base: '/',
 		configFile: join(projectRoot, 'vite.config.js'),
 		logLevel: 'error',
 		root: projectRoot,
@@ -141,21 +177,7 @@ async function exportIcons() {
 			const key = `${asset.width}x${asset.height}`;
 			if (renderedImages.has(key)) continue;
 
-			const result = await page.evaluate(
-				(dimensions) => window.renderSwivelIcon(dimensions),
-				{ width: asset.width, height: asset.height },
-			);
-			const png = Buffer.from(result.dataUrl.split(',')[1], 'base64');
-			const dimensions = pngDimensions(png);
-
-			if (dimensions.width !== asset.width || dimensions.height !== asset.height) {
-				throw new Error(`Unexpected rendered size for ${key}.`);
-			}
-			if (![4, 6].includes(dimensions.colorType) || result.minimumAlpha !== 0 || result.maximumAlpha === 0) {
-				throw new Error(`The ${key} render does not contain transparent and visible pixels.`);
-			}
-
-			renderedImages.set(key, png);
+			renderedImages.set(key, await renderPng(page, asset));
 		}
 
 		for (const asset of WEB_ASSETS) {
@@ -170,13 +192,22 @@ async function exportIcons() {
 			await writeAsset(artworkRoot, asset.path.replace('icons/', ''), renderedImages.get(`${asset.width}x${asset.height}`));
 		}
 
+		for (const asset of PERSPECTIVE_ASSETS) {
+			const png = await renderPng(page, {
+				...asset,
+				width: PERSPECTIVE_WIDTH,
+				height: PERSPECTIVE_HEIGHT,
+			});
+			await writeAsset(artworkRoot, asset.path, png);
+		}
+
 		const favicon = createIco([16, 32, 48].map((size) => ({
 			png: renderedImages.get(`${size}x${size}`),
 			size,
 		})));
 		await writePublicAsset('favicon.ico', favicon);
 
-		console.log(`Created ${WEB_ASSETS.length + 1} deployable web icon files and ${SOCIAL_ASSETS.length + MACOS_ASSETS.length + 1} local social/macOS artwork files.`);
+		console.log(`Created ${WEB_ASSETS.length + 1} deployable web icon files, ${SOCIAL_ASSETS.length + MACOS_ASSETS.length + 1} local social/macOS artwork files, and ${PERSPECTIVE_ASSETS.length} perspective artwork files.`);
 		await buildIcns();
 	} finally {
 		await browser?.close();
