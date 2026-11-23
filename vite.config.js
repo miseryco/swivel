@@ -8,6 +8,7 @@ export default defineConfig({
 				index: "index.html",
 				support: "support/index.html",
 				privacy: "privacy/index.html",
+				thanks: "thanks/index.html",
 			},
 		},
 	},
