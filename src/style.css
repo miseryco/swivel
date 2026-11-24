@@ -503,15 +503,6 @@ h2 {
 	margin-bottom: clamp(2rem, 5vw, 4rem);
 }
 
-.document-eyebrow {
-	margin: 0 0 0.8rem;
-	color: #b80f84;
-	font-size: 0.72rem;
-	font-weight: 800;
-	letter-spacing: 0.12em;
-	text-transform: uppercase;
-}
-
 .document-hero h1 {
 	margin: 0;
 	color: #27242f;
@@ -598,6 +589,21 @@ h2 {
 
 .document-content .document-contact {
 	background: rgb(238 63 145 / 6%);
+}
+
+.document-content .download-button {
+	display: inline-block;
+	margin-bottom: 1.25rem;
+	padding: 0.7rem 1.1rem;
+	border-radius: 0.9rem;
+	background: #a70f76;
+	color: #fff;
+	text-decoration: none;
+}
+
+.document-content .download-button:hover {
+	background: #82095b;
+	color: #fff;
 }
 
 body > footer {
