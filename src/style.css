@@ -60,7 +60,7 @@ main {
 	text-align: center;
 }
 
-body > header h1 {
+body > header #page-title {
 	margin: 0 auto clamp(1.35rem, 2.5vw, 2rem);
 	color: #251d26;
 	font-family: var(--font-family-heading);
@@ -71,7 +71,7 @@ body > header h1 {
 	text-align: left;
 }
 
-body > header h1 a {
+body > header #page-title a {
 	display: inline-flex;
 	align-items: center;
 	gap: 0.5rem;
@@ -79,11 +79,11 @@ body > header h1 a {
 	text-decoration: none;
 }
 
-body > header h1 span {
+body > header #page-title span {
 	transform: translateY(0.1em);
 }
 
-body > header h1 a:focus-visible {
+body > header #page-title a:focus-visible {
 	outline: 3px solid rgb(238 63 145 / 35%);
 	outline-offset: 3px;
 }
