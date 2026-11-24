@@ -5,14 +5,14 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
         <title>Swivel</title>
         <item>
             <title>1.0</title>
-            <pubDate>Tue, 24 Nov 2026 09:02:01 -0800</pubDate>
-            <sparkle:version>18</sparkle:version>
+            <pubDate>Tue, 24 Nov 2026 13:01:51 -0800</pubDate>
+            <sparkle:version>19</sparkle:version>
             <sparkle:shortVersionString>1.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://misery.co/swivel/staging/downloads/Swivel-1.0-18.dmg" length="4389270" type="application/octet-stream" sparkle:edSignature="YJTPOg5gYraKDlG+tdYHjuQWieKfBM8W5xwvaQxkAwlTNAdWzf6eAddQDmq2pBoSw9Mdx2CyvhlBaEf/NHHYBw=="></enclosure>
+            <enclosure url="https://misery.co/swivel/staging/downloads/Swivel-1.0-19.dmg" length="4389571" type="application/octet-stream" sparkle:edSignature="VzPvIOjoXlqTijsa+wdFeofbBhgkaEA48icB2yriP0YLkrF5TOuTAzsM19xUxBrSinW+OjSbh8Cvm/SEXwnLCw=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: inG/0TsWocGlAuA/hFdyR2+BA7HHfRWMlcIosh6A/hBkwrHGKXWspea/lVxrHRPN+IVQS+/hpSJOwuXx26bRCA==
+edSignature: W0IVdrsuaU8RtgqrHDJsSrsEaLoZbooP4B46/26mQ8GC2N+M5alO1H1pWcHwP/ze3Mt9NnAIeprLSjZ3vxjNDg==
 length: 1016
 -->
