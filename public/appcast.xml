@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="yes"?><!-- sparkle-sign-warning:
+IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires re-signing this file with generate_appcast or sign_update! The signed signature will be embedded at the end of this file.
+--><rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>Swivel</title>
+        <item>
+            <title>1.0</title>
+            <pubDate>Tue, 24 Nov 2026 13:01:51 -0800</pubDate>
+            <sparkle:version>19</sparkle:version>
+            <sparkle:shortVersionString>1.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://misery.co/swivel/downloads/Swivel-1.0-19.dmg" length="4389571" type="application/octet-stream" sparkle:edSignature="VzPvIOjoXlqTijsa+wdFeofbBhgkaEA48icB2yriP0YLkrF5TOuTAzsM19xUxBrSinW+OjSbh8Cvm/SEXwnLCw=="></enclosure>
+        </item>
+    </channel>
+</rss><!-- sparkle-signatures:
+edSignature: SfiY/XtfzlceH+9OCnzAEe41ChslRFGrPsXw0S1ILhMP7TVCxFMvS+jf+TBF8a3FVCZKr6VhFuQTAgjrhHGRDg==
+length: 1008
+-->
