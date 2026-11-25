@@ -1,0 +1,21 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "**/swivel-site/index.html",
+          "privacy/index.html",
+          "src/style.css",
+          "support/index.html",
+          "thanks/index.html"
+        ],
+        "createdAt": "2026-11-25T07:11:53.419Z",
+        "reason": "The owner requested the original Swivel headline. Its magenta gradient renders only in the homepage hero. Static scans also attribute the shared stylesheet declaration to the three document pages."
+      }
+    ]
+  }
+}

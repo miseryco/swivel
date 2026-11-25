@@ -200,25 +200,27 @@ export function createScene() {
 	return { scene, head };
 }
 
-export function mountWebcam(container) {
-	const renderer = new THREE.WebGLRenderer({
+export function mountWebcam(container, motion, initialPointer) {
+	const canvas = document.createElement('canvas');
+	const context = canvas.getContext('webgl2', {
 		antialias: true,
 		alpha: true,
-		powerPreference: 'high-performance',
+		powerPreference: 'low-power',
 	});
+	if (!context) return;
+
+	const renderer = new THREE.WebGLRenderer({ canvas, context, alpha: true });
 	renderer.outputColorSpace = THREE.SRGBColorSpace;
 	renderer.toneMapping = THREE.ACESFilmicToneMapping;
-	container.append(renderer.domElement);
 
 	const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 1000);
 	camera.position.set(0, 0, 3.75);
 
 	const { scene, head } = createScene();
-	const cursor = new THREE.Vector2();
 	const target = new THREE.Vector3(0, 0, 4);
 	const aim = new THREE.Object3D();
-	const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-	let reduceMotion = motionQuery.matches;
+	let visible = true;
+	let frame = 0;
 
 	const resize = () => {
 		const { width, height } = container.getBoundingClientRect();
@@ -226,28 +228,43 @@ export function mountWebcam(container) {
 		renderer.setSize(width, height, false);
 		camera.aspect = width / height;
 		camera.updateProjectionMatrix();
+		renderer.render(scene, camera);
 	};
 
-	new ResizeObserver(resize).observe(container);
 	resize();
+	const poster = container.querySelector('img');
+	container.append(canvas);
+	poster.hidden = true;
+	new ResizeObserver(resize).observe(container);
+	new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; }).observe(container);
 
-	motionQuery.addEventListener('change', event => {
-		reduceMotion = event.matches;
-	});
-
-	window.addEventListener('pointermove', event => {
-		cursor.x = (event.clientX / window.innerWidth) * 2 - 1;
-		cursor.y = -(event.clientY / window.innerHeight) * 2 + 1;
-	}, { passive: true });
-
-	renderer.setAnimationLoop(() => {
-		target.set(cursor.x * 2.6, cursor.y * 1.8, 4);
-		aim.lookAt(target);
-		head.quaternion.slerp(aim.quaternion, reduceMotion ? 1 : 0.1);
+	function render() {
+		frame = 0;
+		if (!visible || !motion.matches || context.isContextLost()) return;
+		head.quaternion.slerp(aim.quaternion, 0.15);
 		renderer.render(scene, camera);
+		if (head.quaternion.angleTo(aim.quaternion) > 0.001) frame = requestAnimationFrame(render);
+	}
+
+	function track(event) {
+		if (!visible || !motion.matches || event.pointerType === 'touch') return;
+		const { left, top, width, height } = container.getBoundingClientRect();
+		const x = THREE.MathUtils.clamp((event.clientX - left) / width - 0.5, -1, 1);
+		const y = THREE.MathUtils.clamp(0.5 - (event.clientY - top) / height, -1, 1);
+		target.set(x * 2.6, y * 1.8, 4);
+		aim.lookAt(target);
+		if (!frame) frame = requestAnimationFrame(render);
+	}
+
+	canvas.addEventListener('webglcontextlost', () => {
+		canvas.hidden = true;
+		poster.hidden = false;
 	});
+	canvas.addEventListener('webglcontextrestored', () => {
+		resize();
+		canvas.hidden = false;
+		poster.hidden = true;
+	});
+	window.addEventListener('pointermove', track, { passive: true });
+	track(initialPointer);
 }
-
-const rootElement = document.querySelector('#webcam-root');
-
-if (rootElement) mountWebcam(rootElement);

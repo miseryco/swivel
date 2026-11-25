@@ -35,22 +35,28 @@
 		<link rel="stylesheet" href="/src/style.css" />
 	</head>
 	<body class="document-body">
-		<header>
-			<div id="page-title">
-				<a href="../">
-					<img class="app-mark" src="/icons/web/icon-192x192.png" alt="" aria-hidden="true" />
-					<span>Swivel</span>
-				</a>
-			</div>
+		<a class="skip-link" href="#main-content">Skip to content</a>
+		<header class="site-header">
+			<a class="wordmark" href="../">
+				<img class="app-mark" src="/icons/web/icon-192x192.png" alt="" />
+				<span>Swivel</span>
+			</a>
+			<a href="./" aria-current="page">Support</a>
 		</header>
 
 		<main id="main-content" class="document-page">
 			<header class="document-hero">
 				<h1>Swivel support</h1>
 				<p>
-					Most setup issues come from camera permission, a disconnected camera, or the one-time camera
-					extension approval. Start with these steps.
+					Swivel runs on macOS 14 or later. For automatic switching, add two or more cameras.
+					You can use built-in webcams, USB cameras, or an iPhone with Continuity Camera.
 				</p>
+				<nav class="topic-links" aria-label="Support topics">
+					<a href="#setup">Camera setup</a>
+					<a href="#license">License keys</a>
+					<a href="#troubleshooting">Troubleshooting</a>
+					<a href="#contact">Contact</a>
+				</nav>
 			</header>
 
 			<div class="document-content">
@@ -63,40 +69,43 @@
 					</ol>
 				</section>
 
-				<section>
-					<h2>Find or move your license</h2>
+				<section id="setup">
+					<h2>Set up your cameras</h2>
+					<ol>
+						<li>Open Swivel, choose <strong>Get Started</strong>, then <strong>Activate Camera</strong>.</li>
+						<li>
+							Choose <strong>Open Camera Extension Settings</strong> when prompted. On macOS 15 or later,
+							go to <strong>General → Login Items &amp; Extensions</strong>, open <strong>Camera Extensions</strong>
+							and turn on Swivel. On macOS 14, choose <strong>Allow</strong> in <strong>Privacy &amp; Security</strong>.
+							You may need administrator approval.
+						</li>
+						<li>Follow any restart prompt. In Swivel, choose <strong>Allow Camera Access</strong>, select your cameras and finish setup.</li>
+						<li>In your video app’s camera menu, select <strong>Swivel Virtual Camera</strong>.</li>
+					</ol>
+				</section>
+
+				<section id="license">
+					<h2>Use a direct license</h2>
 					<div>
 						<p>
-							You can try the direct download in calls and recordings before you buy. To remove the watermark,
-							<a href="../#purchase">buy a direct license</a> or use a key you already own.
+							You can try the direct download for as long as you like. During the trial, calls and recordings
+							include a Swivel watermark. Activating a <a href="../#purchase">direct license</a> clears it,
+							even during a call.
 						</p>
 						<p>
-							Open the customer portal from your Polar order email and copy your license key.
-							In Swivel, choose <strong>Settings → License → Enter License Key…</strong> and paste your key.
-							One key can activate up to three Macs. To free a slot, choose
-							<strong>Deactivate This Mac</strong> in Settings, or remove that Mac’s activation
-							in the portal. An activated copy works offline.
+							Choose <strong>Access purchase</strong> in your Polar order email and copy your license key
+							from the customer portal. In Swivel, open <strong>Settings → License → Enter License Key…</strong>
+							and paste your key. An activated copy works offline.
+						</p>
+						<p>
+							One key covers up to three Macs. To move it to another Mac, choose
+							<strong>Deactivate This Mac…</strong> in Swivel Settings or remove the old Mac from the portal.
+							Mac App Store purchases use Apple’s licensing and don’t need a key.
 						</p>
 					</div>
 				</section>
 
-				<section>
-					<h2>Set up Swivel</h2>
-					<ol>
-						<li>Open Swivel and select <strong>Output</strong> in the sidebar.</li>
-						<li>Choose <strong>Activate Camera</strong>.</li>
-						<li>
-							Allow Swivel under
-							<strong>System Settings → General → Login Items &amp; Extensions → Camera Extensions</strong
-							>. An administrator may need to approve it.
-						</li>
-						<li>Return to Swivel and choose <strong>Restart Swivel</strong> if requested.</li>
-						<li>Add a physical camera, grant camera permission, and enable Swivel.</li>
-						<li>Select <strong>Swivel Virtual Camera</strong> in your compatible video app.</li>
-					</ol>
-				</section>
-
-				<section>
+				<section id="troubleshooting">
 					<h2>Camera permission is denied</h2>
 					<p>
 						Open <strong>System Settings → Privacy &amp; Security → Camera</strong>, enable Swivel, then
@@ -116,9 +125,10 @@
 				<section>
 					<h2>The virtual camera is missing</h2>
 					<p>
-						Confirm that the camera extension is approved, restart Swivel when prompted, and relaunch your
-						video app so it refreshes its camera list. Restarting your Mac can clear a stale camera list
-						after an extension update.
+						Open <strong>Output</strong> in Swivel’s sidebar to check the extension.
+						Choose <strong>Activate Camera</strong> if it needs activation and follow the prompts.
+						Relaunch your video app to refresh its camera list. If the camera is still missing after
+						an extension update, restart your Mac.
 					</p>
 				</section>
 
@@ -153,7 +163,7 @@
 					</p>
 				</section>
 
-				<section class="document-contact">
+				<section class="document-contact" id="contact">
 					<h2>Contact support</h2>
 					<p>
 						Email <a href="mailto:swivel@misery.co">swivel@misery.co</a>. Include your macOS version, Mac
@@ -164,12 +174,11 @@
 		</main>
 
 		<footer>
-			<a href="../">Built by Misery &amp; Co.</a>
+			<span>Built by Misery &amp; Co. <small>© <time datetime="2026">2026</time></small></span>
 			<nav aria-label="Support and legal">
 				<a href="./" aria-current="page">Support</a>
 				<a href="../privacy/">Privacy</a>
 			</nav>
-			<time datetime="2026">2026</time>
 		</footer>
 	</body>
 </html>

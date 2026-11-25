@@ -58,119 +58,90 @@
 		<link rel="stylesheet" href="/src/style.css" />
 	</head>
 	<body>
-		<header>
-			<h1 id="page-title">
-				<a href="./">
-					<img class="app-mark" src="/icons/web/icon-192x192.png" alt="" aria-hidden="true" />
-					<span>Swivel</span>
-				</a>
-			</h1>
-			<strong class="hero-text">Automatic camera switching for mac</strong>
+		<a class="skip-link" href="#main-content">Skip to content</a>
+		<header class="site-header">
+			<a class="wordmark" href="./">
+				<img class="app-mark" src="/icons/web/icon-192x192.png" alt="" />
+				<span>Swivel</span>
+			</a>
+			<a href="./support/">Support</a>
 		</header>
 
-		<main>
-			<div
-				id="webcam-root"
-				class="webcam-canvas"
-				role="img"
-				aria-label="Interactive 3D webcam illustration"
-			></div>
-
-			<div class="hero-copy">
-				<p class="summary">Always show your good side</p>
-				<p class="description">
-					Swivel is a macOS app that automatically switches to the camera you're looking at. Connect your
-					webcams, then select Swivel in Zoom, Meet, OBS, or any other video app.
-				</p>
-			</div>
-
-			<nav class="purchase-links" aria-label="Get Swivel">
-				<a class="purchase-link purchase-link-direct" href="./downloads/Swivel-latest.dmg" download>
-					<span class="purchase-link-copy">
-						<small>Try with a watermark</small>
-						<strong>Download for Mac</strong>
-					</span>
-					<span class="purchase-link-arrow" aria-hidden="true">↓</span>
-				</a>
-
-				<a class="purchase-link purchase-link-store" href="https://apps.apple.com/app/id6827154880">
-					<span class="purchase-link-copy">
-						<small>Mac App Store</small>
-						<strong>Purchase with Apple</strong>
-					</span>
-					<span class="purchase-link-arrow" aria-hidden="true">↗</span>
-				</a>
-
-				<a class="license-shortcut" href="https://buy.polar.sh/polar_cl_50NU1MhMS52qjC7Qw5n39Fuxs0ANiISXJGUCn2KASaB">Buy a direct license · $10 USD</a>
-			</nav>
+		<main id="main-content" class="homepage">
+			<section class="hero" aria-labelledby="hero-title">
+				<h1 id="hero-title">Automatic camera switching for Mac</h1>
+				<div id="webcam-root" class="webcam-canvas" aria-hidden="true">
+					<img src="/src/assets/webcam-front.webp" width="896" height="896" alt="" />
+				</div>
+				<div class="hero-copy">
+					<p class="summary">Always show your good side</p>
+					<p class="description">
+						Swivel automatically switches to the camera you’re looking at. Add your webcams,
+						then choose Swivel Virtual Camera in Zoom, Meet, or OBS.
+					</p>
+				</div>
+				<nav class="purchase-links" aria-label="Get Swivel">
+					<a class="purchase-link glass" href="./downloads/Swivel-latest.dmg" download aria-labelledby="try-label" aria-describedby="mac-requirement">
+						<span>
+							<strong id="try-label">Try free</strong>
+							<small id="mac-requirement">Download for macOS 14 or later</small>
+						</span>
+						<span class="purchase-link-arrow" aria-hidden="true">↓</span>
+					</a>
+					<a class="purchase-link glass" href="https://buy.polar.sh/polar_cl_50NU1MhMS52qjC7Qw5n39Fuxs0ANiISXJGUCn2KASaB" aria-labelledby="license-label" aria-describedby="license-price">
+						<span>
+							<strong id="license-label">Buy a license</strong>
+							<small id="license-price">$10 USD · one-time purchase</small>
+						</span>
+						<span class="purchase-link-arrow" aria-hidden="true">↗</span>
+					</a>
+				</nav>
+			</section>
 
 			<section class="features" aria-labelledby="features-heading">
-				<div class="features-heading-row">
-					<h2 id="features-heading">Why Swivel?</h2>
-					<span aria-hidden="true"></span>
-				</div>
-
-				<div class="why-swivel-copy">
-					<p>
-						<strong>Stay present during work calls.</strong> Meetings, interviews, and presentations often
-						mean checking figures or referring to another screen. Swivel follows your attention, so you can
-						turn to what matters without looking away from everyone else.
-					</p>
-					<p>
-						<strong>Create multi-cam content easily.</strong> Call the shots just by looking. Streamers can
-						skip confusing OBS and stream deck configurations. YouTubers can stop manually splicing footage
-						from different cameras. Just look at the next camera and start talking.
-					</p>
-				</div>
-
-				<div class="feature-strip">
-					<article class="feature" style="--feature-accent: #ff9f1c; --feature-glow: #ffe1a8">
-						<p class="feature-number" aria-hidden="true">01</p>
-						<h3>Fast</h3>
-						<p>Built natively for macOS, so camera switches happen the moment you turn.</p>
-					</article>
-
-					<article class="feature" style="--feature-accent: #ee3f91; --feature-glow: #ffc4df">
-						<p class="feature-number" aria-hidden="true">02</p>
-						<h3>Private</h3>
-						<p>Swivel detects where you’re looking on your Mac. Nothing is sent to the cloud.</p>
-					</article>
-
-					<article class="feature" style="--feature-accent: #6f5ce7; --feature-glow: #d8d0ff">
-						<p class="feature-number" aria-hidden="true">03</p>
-						<h3>Easy</h3>
-						<p>Select Swivel as your camera once, then use it in Zoom, Meet, OBS, and more.</p>
-					</article>
+				<h2 id="features-heading">Why Swivel?</h2>
+				<div class="use-cases glass">
+					<div>
+						<h3>Stay present during work calls.</h3>
+						<p>
+							Meetings, interviews, and presentations often mean checking figures or referring to another
+							screen. Swivel follows your attention, so you can turn to what matters without looking away
+							from everyone else.
+						</p>
+					</div>
+					<div>
+						<h3>Create multi-cam content easily.</h3>
+						<p>
+							Call the shots just by looking. Streamers can skip confusing OBS and stream deck configurations.
+							YouTubers can stop manually splicing footage from different cameras. Just look at the next camera
+							and start talking.
+						</p>
+					</div>
 				</div>
 			</section>
 
 			<section class="purchase-cta" id="purchase" aria-labelledby="purchase-heading">
-				<div class="purchase-cta-copy">
-					<p class="purchase-eyebrow">Direct license</p>
-					<h2 id="purchase-heading">Remove the<br /><em>watermark.</em></h2>
-					<p>Try Swivel in calls and recordings for as long as you like. A one-time license removes the watermark on up to three Macs and includes lifetime updates.</p>
+				<div>
+					<h2 id="purchase-heading">Swivel for your Macs</h2>
+					<p>A direct license covers up to three Macs and includes lifetime updates.</p>
+					<a class="license-details" href="./support/#license">Trial and license details</a>
 				</div>
-
 				<div class="purchase-offer">
-					<p class="purchase-price"><strong>$10</strong> <span>USD</span></p>
-					<a class="purchase-button" href="https://buy.polar.sh/polar_cl_50NU1MhMS52qjC7Qw5n39Fuxs0ANiISXJGUCn2KASaB">
-						Buy a license
-						<span aria-hidden="true">→</span>
-					</a>
-					<p class="purchase-note">Enter your key in Swivel Settings to activate this Mac.</p>
+					<p class="purchase-price"><strong>$10</strong> USD · one time</p>
+					<a class="button" href="https://buy.polar.sh/polar_cl_50NU1MhMS52qjC7Qw5n39Fuxs0ANiISXJGUCn2KASaB">Buy a license</a>
+					<a class="store-option" href="https://apps.apple.com/app/id6827154880">Or buy on the Mac App Store</a>
 				</div>
 			</section>
 		</main>
 
 		<footer>
-			<a href="./">Built by Misery &amp; Co.</a>
+			<span>Built by Misery &amp; Co. <small>© <time datetime="2026">2026</time></small></span>
 			<nav aria-label="Support and legal">
 				<a href="./support/">Support</a>
 				<a href="./privacy/">Privacy</a>
 			</nav>
-			<span>© <time datetime="2026">2026</time></span>
 		</footer>
 
-		<script type="module" src="/src/webcam.js"></script>
+		<script type="module" src="/src/hero.js"></script>
 	</body>
 </html>
